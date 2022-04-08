@@ -1,7 +1,3 @@
-document.querySelector('#carousel').addEventListener("wheel", event=>{
-    if(event.deltaY > 0){
-        event.target.scrollBy(100,0);
-    }else{
-        event.target.scrollBy(-100,0);
-    }
-});
+function scrollCatalogo( event ){
+    (event.deltaY > 0) ? event.target.scrollBy(300,0) : event.target.scrollBy(-300,0); event.returnValue = false;
+}

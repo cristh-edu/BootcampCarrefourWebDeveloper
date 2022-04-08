@@ -16,6 +16,13 @@
 body{
     background-color: var(--preta);
     font-family: 'Roboto', sans-serif;
+    overflow: overlay;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
 }
 
 .bg-preto{
@@ -23,16 +30,34 @@ body{
 }
 
 .logo{
-    height: 25px;
+    height: 20px;
 }
 
 .nav-shadow{
     box-shadow: var(--shadow);
 }
 
+i {
+    font-size: 1rem;
+}
+
+.badge:after{
+    content:"9+";
+    position: relative;
+    background: var(--vermelho);
+    top:-1.9rem;
+    left:0.6rem;
+    text-align: center;
+    font-size: 0.6rem;
+    border-radius: 50%;
+    color:white;
+    border:1px solid var(--vermelho);
+    padding: 0;
+}
+
 header{
     border: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-image: url('../img/bg-home.jpg');
     background-repeat: no-repeat;
@@ -44,6 +69,17 @@ header>section.degrade{
     background-image: linear-gradient(to right, rgba(0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 30%, rgb(0, 0, 0, 0) 60%);
     height: 100%;
     width: 100%;
+}
+
+@media screen {
+    header{
+        background-position: 75%;
+    }
+    
+    header>section.degrade{
+        background-image: linear-gradient(to top, rgba(0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 40%, rgb(0, 0, 0, 0) 75%);
+
+    }
 }
 
 header>section>div{
@@ -66,15 +102,29 @@ header>section>div>img{
 
 article{
     margin-top: -15vh;
+    margin-bottom: 5vh;
+    background-image: linear-gradient(transparent 0%,var(--preta) 15vh);
+}
+
+article>section{
+    margin-bottom: 10px;
 }
 
 .catalogofilmes{
     display: flex;
     overflow-x:auto;
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scroll-snap-stop: always;
 }
 
-.catalogofilmes img{
+.catalogofilmes a{
     flex: none;
     scroll-snap-align: start;
+    padding-right: 10px;
+    pointer-events:none;
+}
+
+article>section>p{
+    margin: 0;
 }
